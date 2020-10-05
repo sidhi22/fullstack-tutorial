@@ -1,16 +1,29 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:6-alpine' 
-            args '-p 3000:3000' 
-        }
+  agent any
+    
+  tools {nodejs "Node"}
+    
+  stages {
+        
+    stage('Checkout') {
+      steps {
+          dir( 'server')
+         sh '
+      }
     }
-    stages {
-        stage('Build') { 
-            steps {
-                sh 'npm install' 
-                echo 'testing jenkinsfile22'
-            }
-        }
+     
+    stage('Build') {
+      steps {
+        sh 'npm install'
+         sh '<<Build Command>>'
+      }
+    }  
+    
+            
+    stage('Test') {
+      steps {
+        sh 'node test'
+      }
     }
+  }
 }
