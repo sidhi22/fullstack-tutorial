@@ -1,5 +1,3 @@
-
-
 FROM node:8
 WORKDIR /usr/src/app/server
 COPY package*.json ./
