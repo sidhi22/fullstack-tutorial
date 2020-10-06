@@ -1,10 +1,11 @@
+
+
 FROM node:8
-WORKDIR /server/
-
-CMD  npm install && npm start
-
+WORKDIR /usr/src/app/server
+COPY package*.json ./
+RUN  npm install && npm start-dynamo-local && npm start
+COPY..
 
  
-
-WORKDIR /client/
+WORKDIR /usr/src/app/client
 CMD  npm install && npm start
