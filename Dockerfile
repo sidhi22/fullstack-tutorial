@@ -1,9 +1,5 @@
 FROM node:8
-WORKDIR /usr/src/app/server
-COPY package*.json ./
+WORKDIR  ../server
 RUN  npm install && npm start-dynamo-local && npm start
-COPY..
-
- 
-WORKDIR /usr/src/app/client
+WORKDIR ../client
 CMD  npm install && npm start
